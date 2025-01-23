@@ -3,52 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caballitos de Mar AR</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Prueba de AR</title>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js@3.3.2/aframe/build/aframe-ar.min.js"></script>
 </head>
-<body>
-  <h1>Encuentra los Caballitos de Mar</h1>
-  <p>Usa tu móvil para ver los caballitos de mar en la realidad aumentada.</p>
-
-  <!-- Contenedor de la escena AR -->
-  <a-scene 
-    vr-mode-ui="enabled: false" 
-    embedded 
-    arjs="sourceType: webcam;">
-    <!-- Luz para iluminar los objetos 3D -->
-    <a-light type="directional" intensity="1" position="0 1 2"></a-light>
-
-    <!-- Caballito de mar 3D interactivo -->
-    <a-entity 
-      id="caballito" 
-      gltf-model="seahorse.glb" 
-      position="0 0 -2" 
-      scale="0.5 0.5 0.5" 
-      rotation="0 180 0">
-    </a-entity>
+<body style="margin: 0; overflow: hidden;">
+  <a-scene embedded arjs="sourceType: webcam;">
+    <!-- Objeto 3D básico -->
+    <a-box position="0 0 -2" color="blue" scale="0.5 0.5 0.5"></a-box>
 
     <!-- Cámara -->
     <a-camera position="0 1.6 0" look-controls></a-camera>
   </a-scene>
-
-  <!-- Contenedor de la pregunta -->
-  <div id="pregunta" style="display: none; position: absolute; top: 20%; left: 10%; width: 80%; background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-    <p>¿Sabías que los caballitos de mar machos cuidan los huevos?</p>
-    <button onclick="cerrarPregunta()">Cerrar</button>
-  </div>
-
-  <script>
-    // Detectar clic en el caballito
-    document.querySelector('#caballito').addEventListener('click', () => {
-      document.querySelector('#pregunta').style.display = 'block';
-    });
-
-    // Cerrar la pregunta
-    function cerrarPregunta() {
-      document.querySelector('#pregunta').style.display = 'none';
-    }
-  </script>
 </body>
 </html>
